@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.MainPage"
+             Title="Онлайн-техобслуживание">
+    <StackLayout Padding="10">
+        <Label Text="Онлайн-техобслуживание (техосмотр)"
+               FontSize="Large"
+               FontAttributes="Bold"
+               TextColor="Blue"
+               HorizontalOptions="Center" />
+
+        <ListView x:Name="WorkListView"
+                  ItemsSource="{Binding WorkItems}"
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding Key}"
+                  ItemSelected="OnItemSelected">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Key}" TextColor="Gray" />
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                   
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="1">
+                            <Image Source="{Binding Photo}" WidthRequest="50" HeightRequest="50" />
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding WorkType}" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="{Binding Address}" FontSize="14" />
+                                <Label Text="{Binding Phone}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="10">
+            <Button Text="Расчет стоимости" Clicked="OnCalculateCostClicked" />
+            <Button Text="Выбрать срок" Clicked="OnSelectDurationClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

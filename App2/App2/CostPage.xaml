@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.CostPage"
+             Title="Расчет стоимости">
+    <StackLayout Padding="10">
+        <Label Text="Калькулятор стоимости"
+               FontSize="Large"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label x:Name="SalaryLabel" />
+        <Label x:Name="DurationLabel" />
+        <Label x:Name="DiscountLabel" />
+        <Label x:Name="FinalCostLabel" />
+
+        <Button Text="На главный экран" Clicked="OnBackToMainPageClicked" />
+    </StackLayout>
+</ContentPage>
